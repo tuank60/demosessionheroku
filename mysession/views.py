@@ -19,6 +19,7 @@ from mysession.token import account_activation_token
 from django.core.mail import EmailMessage
 from django.db.models import Q
 from mysession import models
+import threading
 # Create your views here.
 
 def registration(request):
@@ -108,8 +109,14 @@ def home(request):
 def myview(request):
     return render(request, 'hello.html')
 
+def RegularVerification():
+    print("tuan")
+
 @csrf_protect
 def Mylogin(request):
+    t1 = threading.Thread(target=RegularVerification)
+    t1.setDaemon(True)
+    t1.start()
     error = {}
     if request.method == 'POST':
         username = request.POST.get('username')
