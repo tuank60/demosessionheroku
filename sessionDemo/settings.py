@@ -132,9 +132,9 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
 
 # Auth Setting
-LOGIN_URL = '/account/login/'
-LOGIN_REDIRECT_URL = ''
-LOGOUT_REDIRECT_URL = ''
+# LOGIN_URL = '/account/login/'
+# LOGIN_REDIRECT_URL = ''
+# LOGOUT_REDIRECT_URL = ''
 
 #Email Setting
 EMAIL_USE_TLS = True
