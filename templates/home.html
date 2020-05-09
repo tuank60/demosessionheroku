@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style type="text/css">
+        #avatar {
+            /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+            background-image: url('{{ MEDIA_URL }}{{ filename }}');
+
+            /* make a square container */
+            width: 150px;
+            height: 150px;
+
+            /* fill the container, preserving aspect ratio, and cropping to fit */
+            background-size: cover;
+
+            /* center the image vertically and horizontally */
+            background-position: top center;
+
+            /* round the edges to a circle with border radius 1/2 container size */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+     <a href="/">login</a>|<a href="{% url 'logout' %}">logout</a>
+    <p>This is home page demo session</p>
+{#    <img id="avatar" src="{{ MEDIA_URL }}{{ filename }}" width="250" height="250">#}
+    <div id="avatar"></div>
+    {{ username }}
+    <input type="file" id="myimage" name="myimage" accept="image/png,image/jpeg" >
+    <button type="submit">OK</button>
+
+{#    well com ...... auth  #}
+</form>
+<script>
+    function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+{#                    $('#avatar')#}
+{#                        .attr('src', e.target.result);#}
+                    $('#avatar').style.backgroundImage = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    $('#myimage').change(function () {
+        readURL(this);
+    });
+</script>
+</body>
+</html>

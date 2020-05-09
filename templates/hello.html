@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="{{ MEDIA_URL }}anhvu261">
+        <input type="file" name="img" accept="image/png,image/jpeg" >
+        <button type="submit">OK</button>
+    </form>
+</body>
+</html>

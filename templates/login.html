@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="Email or username!" name="username">
+    <br>
+    <input type="password" placeholder="***********" name="password">
+    <br>
+    <button type="submit">LOGIN</button>
+    <br>
+    or click here to <a href="{% url 'register' %}">register</a>
+</form>
+</body>
+</html>
