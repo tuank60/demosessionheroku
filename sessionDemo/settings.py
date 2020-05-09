@@ -143,4 +143,4 @@ EMAIL_HOST_USER = 'anhvu01011994@gmail.com'
 EMAIL_HOST_PASSWORD = '01011994'
 EMAIL_PORT = 587
 
-ALLOWED_HOSTS = ['deploycortek.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['domosession.herokuapp.com','127.0.0.1']
